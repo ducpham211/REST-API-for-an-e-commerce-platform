@@ -1,9 +1,19 @@
 spring:
-  application:
-    name: store
   datasource:
-    url: jdbc:mysql://localhost:3306/store_api?createDatabaseIfNotExist=true
-    username: root
-    password: MyPassword!
+    # Thay 'store_api' bằng tên Database bạn đã tạo trong pgAdmin
+    url: jdbc:postgresql://localhost:5432/spring_api
+    username: postgres
+    password: postgres # Mật khẩu bạn đã đặt lại hoặc dùng cách 'trust'
+    driver-class-name: org.postgresql.Driver
+
   jpa:
+    hibernate:
+      ddl-auto: validate # Flyway sẽ quản lý tạo bảng, nên để validate
     show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
