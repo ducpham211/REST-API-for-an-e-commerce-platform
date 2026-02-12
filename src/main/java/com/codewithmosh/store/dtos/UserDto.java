@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 public class UserDto {
-    @JsonIgnore // bỏ qua việc hiển thị ID
     private Long id;
     private String email;
     private String name;
